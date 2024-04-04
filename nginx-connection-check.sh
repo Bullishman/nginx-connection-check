@@ -53,7 +53,6 @@ while true; do
           echo "Active connections are 1. Removing node."
           ((should_scale_down_num++))
         fi
-	  else
 	    
       fi
     done < <(echo "$pods" | jq -r '.items[] | "\(.metadata.name) \(.status.podIP) \(.metadata.namespace)"')

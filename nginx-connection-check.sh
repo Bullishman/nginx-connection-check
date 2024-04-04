@@ -64,6 +64,8 @@ while true; do
   echo "New node count: $new_node_count"
   if [ $new_node_count -ge 1 ]; then
       az aks nodepool scale --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --resource-group $RESOURCE_GROUP --node-count $new_node_count
+  elif [ $new_node_count -eq 0 ]; then
+      az aks nodepool scale --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --resource-group $RESOURCE_GROUP --node-count 1
   fi
   
   # Wait for 5 minutes 300 seconds

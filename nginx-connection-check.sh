@@ -62,7 +62,7 @@ while true; do
   echo "Net scale: $net_scale"
   new_node_count=$((current_node_count + net_scale))
   echo "New node count: $new_node_count"
-  if [ $net_scale -ge 1 ]; then
+  if [ $new_node_count -ge 1 ]; then
       az aks nodepool scale --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --resource-group $RESOURCE_GROUP --node-count $new_node_count
   fi
   

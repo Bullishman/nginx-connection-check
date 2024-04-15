@@ -17,6 +17,10 @@ Enter the authentication code that appears when you enter the above command loca
 Upon successful login, the following result is returned.
 ![VM13_updated](https://github.com/Bullishman/nginx-connection-check/assets/42830393/a95a5b50-8d53-44f5-883b-cd0fbccb55cd)
 
+Install or Unzip Apache24 and then you can execute command following to increase active connection.
+```
+ab -n 100 -c 100 http://localhost:8080/basic_status
+```
 Afterwards, running the bash file checks the active connection value in all nodes' nginx-based pods every 5 minutes, automatically creating a node when there are more than 5 active connections and deleting a node when there are none.
 ![VM15_updated](https://github.com/Bullishman/nginx-connection-check/assets/42830393/9585b576-b152-46ad-8b50-c893576b6cf5)
 
